@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=WayMedia
+Comment=Медиаплеер Waydroid в индикаторе звука и на экране блокировки
+Exec=./run.sh %U
+Icon=waymedia.png
+Terminal=false
+Type=Application
+X-Lomiri-Touch=true

@@ -1,0 +1,15 @@
+{
+    "name": "waymedia.turbosailor",
+    "version": "0.1.0",
+    "architecture": "arm64",
+    "framework": "ubuntu-sdk-20.04",
+    "maintainer": "TurboSailor <turbosailor@users.noreply.github.com>",
+    "title": "WayMedia",
+    "description": "Управление медиаплеером Android из контейнера Waydroid с экрана блокировки Ubuntu Touch",
+    "hooks": {
+        "waymedia": {
+            "apparmor": "waymedia.apparmor",
+            "desktop": "waymedia.desktop"
+        }
+    }
+}

@@ -1,0 +1,49 @@
+MEDIA SESSION SERVICE (dumpsys media_session)
+
+4 sessions listeners.
+Global priority session is com.android.server.telecom/HeadsetMediaButton (userId=0)
+  HeadsetMediaButton com.android.server.telecom/HeadsetMediaButton (userId=0)
+    ownerPid=284, ownerUid=1000, userId=0
+    package=com.android.server.telecom
+    launchIntent=null
+    mediaButtonReceiver=null
+    active=false
+    flags=65537
+    rating type=0
+    controllers: 0
+    state=null
+    audioAttrs=AudioAttributes: usage=USAGE_VOICE_COMMUNICATION content=CONTENT_TYPE_SPEECH flags=0x800 tags= bundle=null
+    volumeType=1, controlType=2, max=0, current=0
+    metadata: null
+    queueTitle=null, size=0
+User Records:
+Record for full_user=0
+  Volume key long-press listener: null
+  Volume key long-press listener package: 
+  Media key listener: null
+  Media key listener package: 
+  OnMediaKeyEventDispatchedListener: added 0 listener(s)
+  OnMediaKeyEventSessionChangedListener: added 0 listener(s)
+  Last MediaButtonReceiver: Restored MBR {component=ComponentInfo{ru.yandex.music/com.yandex.music.shared.media.session.session.MusicMediaButtonReceiver}, type=1}
+  Media button session is ru.yandex.music/androidx.media3.session.id. (userId=0)
+  Sessions Stack - have 1 sessions:
+    androidx.media3.session.id. ru.yandex.music/androidx.media3.session.id. (userId=0)
+      ownerPid=80892, ownerUid=10135, userId=0
+      package=ru.yandex.music
+      launchIntent=PendingIntent{59afbf: PendingIntentRecord{c9fc389 ru.yandex.music startActivity (allowlist: 9b3dbcb:+30s0ms/0/NOTIFICATION_SERVICE/NotificationManagerService)}}
+      mediaButtonReceiver=Restored MBR {component=ComponentInfo{ru.yandex.music/com.yandex.music.shared.media.session.session.MusicMediaButtonReceiver}, type=1}
+      active=true
+      flags=3
+      rating type=1
+      controllers: 5
+      state=PlaybackState {state=3, position=223886, buffered position=0, speed=1.0, updated=46490285, actions=524283, custom actions=[Action:mName='Не нравится Не выбрано, mIcon=2131231426, mExtras=Bundle[EMPTY_PARCEL], Action:mName='Нравится Выбрано, mIcon=2131231517, mExtras=Bundle[EMPTY_PARCEL]], active item id=32, error=null}
+      audioAttrs=AudioAttributes: usage=USAGE_MEDIA content=CONTENT_TYPE_MUSIC flags=0x800 tags= bundle=null
+      volumeType=1, controlType=2, max=0, current=0
+      metadata: size=18, description=Always on My Mind, Michael Bublé, null
+      queueTitle=null, size=33
+Audio playback (lastly played comes first)
+  uid=10135 packages=ru.yandex.music 
+Media session config:
+  media_button_receiver_fgs_allowlist_duration_ms: [cur: 10000, def: 10000]
+  media_session_calback_fgs_allowlist_duration_ms: [cur: 10000, def: 10000]
+  media_session_callback_fgs_while_in_use_temp_allow_duration_ms: [cur: 10000, def: 10000]

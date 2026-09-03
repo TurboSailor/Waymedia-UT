@@ -1,0 +1,35 @@
+[Unit]
+# Systemd *user* unit, installed into ~/.config/systemd/user by run.sh.
+#
+# The daemon must not be forked from the click app: Lomiri freezes the
+# application cgroup shortly after the window goes away and eventually reaps it,
+# so a forked bridge would stop answering MPRIS calls exactly when it matters —
+# with the screen locked. Living in the user manager instead keeps the
+# org.mpris.MediaPlayer2.waymedia name on the session bus for as long as the
+# session exists, and brings it back after a reboot without root or a rw rootfs.
+Description=Waydroid media session bridge (MPRIS2)
+Documentation=https://github.com/TurboSailor/WayMedia-UT
+# Wanted, not required: the graphical session owns the session bus this daemon
+# exports MPRIS2 on, but a hard dependency would keep the unit from ever
+# starting if the target is not reached in this boot.
+After=graphical-session.target
+Wants=graphical-session.target
+# No start rate limit (this key belongs to [Unit], not [Service]): the daemon
+# legitimately restarts in a tight loop early in a boot, while it waits for the
+# session bus and for the Waydroid container to come up. The default burst limit
+# would park the unit in "failed" for the rest of the uptime.
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+ExecStart=/opt/click.ubuntu.com/waymedia.turbosailor/current/bin/waymediad
+# The container adbd comes and goes with every Waydroid restart; a crash must
+# not take the bridge down for the rest of the uptime.
+Restart=always
+RestartSec=3
+# Logs land in the user journal: journalctl --user -u waymediad
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target
